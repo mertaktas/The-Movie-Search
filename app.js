@@ -2,9 +2,12 @@ var express = require("express");
 var app = express();
 var request = require("request");
 
+
 app.set("view engine", "ejs");
 
+
 var img = "https://image.tmdb.org/t/p/w300";
+
 
 app.get("/", function (req, res) {
     //Sorgulama
@@ -49,6 +52,30 @@ app.get("/movies", function (req, res) {
         if (!error && response.statusCode == 200) {
             var movi = JSON.parse(body);
             res.render("movies", {
+                movi: movi,
+                img: img
+            });
+        }
+    });
+});
+
+app.get("/tv", function (req, res) {
+    var selectsira = req.query.selectedsira;
+    var siralama = "&sort_by=" + selectsira;
+    //Sorgulama
+    var selectyear = req.query.selectyears;
+    var years = "&year=" + selectyear;
+
+
+    var page = "&page=1"
+
+    var movies = "https://api.themoviedb.org/3/discover/tv?api_key=75019398caf1e5d87c0e4198fc9f17e2&language=en-US&sort_by=popularity.desc";
+
+    var movie = movies + siralama + page + years;
+    request(movie, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var movi = JSON.parse(body);
+            res.render("tv", {
                 movi: movi,
                 img: img
             });

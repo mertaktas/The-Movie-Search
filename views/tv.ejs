@@ -1,7 +1,7 @@
 <% include partials/header %>
 
 <div class="container my-4">
-    <form class="form-group form-inline" id="tableForm" action="/movies" method="GET">
+    <form class="form-group form-inline" id="tableForm" action="/tv" method="GET">
         <select class="custom-select w-25" data-style="btn-info" name="selectyears">
             <optgroup>
                 <option selected="" name="2019" value="2019">2019</option>
@@ -19,8 +19,8 @@
             <optgroup>
                 <option selected="" name="popularity.desc" value="popularity.desc">Yüksek Popülerlik</option>
                 <option name="popularity.asc" value="popularity.asc">Düşük Popülerlik</option>
-                <option name="title.asc" value="title.asc">Başlık (A-Z)</option>
-                <option name="title.desc" value="title.desc">Başlık (Z-A)</option>
+                <option name="vote_average.desc" value="vote_average.desc">Yüksek Oy Ortalaması</option>
+                <option name="vote_average.asc" value="vote_average.asc">Düşük Oy Ortalaması</option>
 
             </optgroup>
         </select>
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="col-8 mb-4">
-                    <h3 class="card-header"><%= mov.title %></h3>
+                    <h3 class="card-header"><%= mov.original_name %></h3>
                     <div class="card-body">
                         <h5 class="card-title">Populerlik : <%= mov.popularity %></h5>
                         <p class="card-text">Açıklama : <%= mov.overview.substring(0, 140) %>...</p>
