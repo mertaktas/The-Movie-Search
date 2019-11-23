@@ -1,0 +1,58 @@
+<% include partials/header %>
+
+<div class="container my-4">
+    <form class="form-group form-inline" id="tableForm" action="/movies" method="GET">
+        <select class="custom-select w-25" data-style="btn-info" name="selectyears">
+            <optgroup>
+                <option selected="" name="2019" value="2019">2019</option>
+                <option name="2018" value="2018">2018</option>
+                <option name="2017" value="2017">2017</option>
+                <option name="2019" value="2019">2016</option>
+                <option name="2018" value="2018">2015</option>
+                <option name="2017" value="2017">2014</option>
+                <option name="2019" value="2019">2013</option>
+                <option name="2018" value="2018">2012</option>
+                <option name="2017" value="2017">2011</option>
+            </optgroup>
+        </select>
+        <select class="custom-select w-25 mx-2" data-style="btn-info" name="selectedsira">
+            <optgroup>
+                <option selected="" name="popularity.asc" value="popularity.asc">Yüksek Popülerlik</option>
+                <option name="popularity.desc" value="popularity.desc">Düşük Popülerlik</option>
+                <option name="title.asc" value="title.asc">Başlık (A-Z)</option>
+                <option name="title.desc" value="title.desc">Başlık (Z-A)</option>
+
+            </optgroup>
+        </select>
+        <input class="btn btn-secondary mx-2" type="submit" value="Filtreleme" />
+    </form>
+
+    <div class="row">
+        <% movi["results"].forEach(function(mov){ %>
+
+        <div class="mb-4 col-6" style="width: 100%;">
+            <div class="row">
+                <div class="col-4">
+                    <img style="height: 240px; width: 100%;" src="<%= img + mov.poster_path %>" alt="Card image">
+                </div>
+
+                <div class="col-8 mb-4">
+                    <h3 class="card-header"><%= mov.title %></h3>
+                    <div class="card-body">
+                        <h5 class="card-title">Populerlik : <%= mov.popularity %></h5>
+                        <p class="card-text">Açıklama : <%= mov.overview.substring(0, 140) %>...</p>
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% }); %>
+    </div>
+</div>
+
+
+<% include partials/footer %>
