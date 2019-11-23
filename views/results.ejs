@@ -1,0 +1,75 @@
+<% include partials/header %>
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col-sm-3">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="#">Movies</a>
+                    <span class="badge badge-primary badge-pill">1421</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="#">TV Shows</a>
+                    <span class="badge badge-primary badge-pill">212</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="#">People</a>
+                    <span class="badge badge-primary badge-pill">1121</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="#">Companies</a>
+                    <span class="badge badge-primary badge-pill">212</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="#">Collections</a>
+                    <span class="badge badge-primary badge-pill">12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="#">Networks</a>
+                    <span class="badge badge-primary badge-pill">3322</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="#">Keywords</a>
+                    <span class="badge badge-primary badge-pill">12</span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+                <% if (source == null) { %>
+                <p>No results. Please try refining your search terms.</p>
+                <% } else { %>
+
+                <div class="mb-4 col-12" style="width: 100%;">
+                    <% source["results"].forEach(function(movie) { %>
+                    <div class="row mb-4">
+
+                        <div class="col-4 ">
+                            <img style="height: 240px; width: 100%;"
+                                src="https://image.tmdb.org/t/p/w300<%= movie.poster_path %>" alt="Card image">
+                        </div>
+
+                        <div class="col-8 mb-4">
+                            <h3 class="card-header"><%= movie.title %></h3>
+                            <div class="card-body">
+                                <h5 class="card-title">Populerlik : <%= movie.popularity %></h5>
+                                <p class="card-text">Açıklama : <%= movie.overview.substring(0, 140) %>...</p>
+
+                            </div>
+                            <div class="card-footer text-muted">
+                                2 days ago
+                            </div>
+                        </div>
+
+                    </div>
+                    <% }); %>
+                </div>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include partials/footer %>
