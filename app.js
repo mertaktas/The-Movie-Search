@@ -132,6 +132,23 @@ app.get("/toprated", function (req, res) {
 });
 
 
+app.get("/upcoming", function (req, res) {
+
+    var people = "https://api.themoviedb.org/3/movie/upcoming?api_key=75019398caf1e5d87c0e4198fc9f17e2&language=en-US&page=1";
+
+
+    request(people, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var source = JSON.parse(body);
+            res.render("upcoming", {
+                source: source,
+                img: img
+            });
+        }
+    });
+});
+
+
 
 
 
