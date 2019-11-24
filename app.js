@@ -8,8 +8,12 @@ app.set("view engine", "ejs");
 
 var img = "https://image.tmdb.org/t/p/w300";
 
-
 app.get("/", function (req, res) {
+    res.render('home');
+});
+
+
+app.get("/search", function (req, res) {
     //Sorgulama
     var query = req.query.search;
 
@@ -27,7 +31,7 @@ app.get("/", function (req, res) {
     request(url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var source = JSON.parse(body);
-            res.render("results", {
+            res.render("search", {
                 source: source,
                 img: img
             });
