@@ -107,7 +107,7 @@ app.get("/populermovie", function (req, res) {
     request(people, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var source = JSON.parse(body);
-            res.render("populer_movie", {
+            res.render("movies/populer_movie", {
                 source: source,
                 img: img
             });
@@ -123,7 +123,7 @@ app.get("/toprated", function (req, res) {
     request(people, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var source = JSON.parse(body);
-            res.render("top_rated", {
+            res.render("movies/top_rated", {
                 source: source,
                 img: img
             });
@@ -140,7 +140,7 @@ app.get("/upcoming", function (req, res) {
     request(people, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var source = JSON.parse(body);
-            res.render("upcoming", {
+            res.render("movies/upcoming", {
                 source: source,
                 img: img
             });
@@ -156,7 +156,7 @@ app.get("/nowplaying", function (req, res) {
     request(people, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var source = JSON.parse(body);
-            res.render("now_playing", {
+            res.render("movies/now_playing", {
                 source: source,
                 img: img
             });
