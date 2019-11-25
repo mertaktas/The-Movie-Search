@@ -55,7 +55,7 @@ app.get("/movies", function (req, res) {
     request(movie, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var movi = JSON.parse(body);
-            res.render("movies", {
+            res.render("discover/movies", {
                 movi: movi,
                 img: img
             });
@@ -79,7 +79,7 @@ app.get("/tv", function (req, res) {
     request(movie, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var movi = JSON.parse(body);
-            res.render("tv", {
+            res.render("discover/tv", {
                 movi: movi,
                 img: img
             });
