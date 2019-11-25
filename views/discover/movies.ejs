@@ -1,11 +1,12 @@
 <% include ../partials/header %>
 
-<div class="container">
-    <div class="jumbotron">
+<div class="jumbotron">
+    <div class="container">
+        <h2 class="mb-4">Özel Sıralama</h2>
         <form class="form-group form-inline" id="tableForm" action="/movies" method="GET">
             <select class="custom-select" data-style="btn-info" name="selectyears">
                 <optgroup>
-                    <option selected="Years" value="Years">Years</option>
+                    <option selected="Years" value="Years">Yıllar</option>
                     <option name="2019" value="2019">2019</option>
                     <option name="2018" value="2018">2018</option>
                     <option name="2017" value="2017">2017</option>
@@ -42,6 +43,8 @@
             <input class="btn btn-secondary mx-2" type="submit" value="Sırala" />
         </form>
     </div>
+</div>
+<div class="container">
     <div class="row">
         <% movi["results"].forEach(function(mov){ %>
         <div class="mb-4 col-6 list-group" style="width: 100%;">
