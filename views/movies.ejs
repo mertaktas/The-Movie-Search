@@ -1,43 +1,44 @@
 <% include partials/header %>
 
-<div class="container my-4">
-    <form class="form-group form-inline" id="tableForm" action="/movies" method="GET">
-        <select class="custom-select" data-style="btn-info" name="selectyears">
-            <optgroup>
-                <option selected="" name="2019" value="2019">2019</option>
-                <option name="2018" value="2018">2018</option>
-                <option name="2017" value="2017">2017</option>
-                <option name="2016" value="2016">2016</option>
-                <option name="2015" value="2015">2015</option>
-                <option name="2014" value="2014">2014</option>
-                <option name="2013" value="2013">2013</option>
-                <option name="2012" value="2012">2012</option>
-                <option name="2011" value="2011">2011</option>
-                <option name="2010" value="2010">2010</option>
-                <option name="2009" value="2009">2009</option>
-                <option name="2008" value="2008">2008</option>
-                <option name="2007" value="2007">2007</option>
-                <option name="2006" value="2006">2006</option>
-                <option name="2005" value="2005">2005</option>
-                <option name="2004" value="2004">2004</option>
-                <option name="2003" value="2003">2003</option>
-                <option name="2002" value="2002">2002</option>
-                <option name="2001" value="2001">2001</option>
-                <option name="2000" value="2000">2000</option>
-            </optgroup>
-        </select>
-        <select class="custom-select w-25 mx-2" data-style="btn-info" name="selectedsira">
-            <optgroup>
-                <option selected="" name="popularity.desc" value="popularity.desc">Yüksek Popülerlik</option>
-                <option name="popularity.asc" value="popularity.asc">Düşük Popülerlik</option>
-                <option name="title.asc" value="title.asc">Başlık (A-Z)</option>
-                <option name="title.desc" value="title.desc">Başlık (Z-A)</option>
+<div class="container">
+    <div class="jumbotron">
+        <form class="form-group form-inline" id="tableForm" action="/movies" method="GET">
+            <select class="custom-select" data-style="btn-info" name="selectyears">
+                <optgroup>
+                    <option selected="" name="2019" value="2019">2019</option>
+                    <option name="2018" value="2018">2018</option>
+                    <option name="2017" value="2017">2017</option>
+                    <option name="2016" value="2016">2016</option>
+                    <option name="2015" value="2015">2015</option>
+                    <option name="2014" value="2014">2014</option>
+                    <option name="2013" value="2013">2013</option>
+                    <option name="2012" value="2012">2012</option>
+                    <option name="2011" value="2011">2011</option>
+                    <option name="2010" value="2010">2010</option>
+                    <option name="2009" value="2009">2009</option>
+                    <option name="2008" value="2008">2008</option>
+                    <option name="2007" value="2007">2007</option>
+                    <option name="2006" value="2006">2006</option>
+                    <option name="2005" value="2005">2005</option>
+                    <option name="2004" value="2004">2004</option>
+                    <option name="2003" value="2003">2003</option>
+                    <option name="2002" value="2002">2002</option>
+                    <option name="2001" value="2001">2001</option>
+                    <option name="2000" value="2000">2000</option>
+                </optgroup>
+            </select>
+            <select class="custom-select w-25 mx-2" data-style="btn-info" name="selectedsira">
+                <optgroup>
+                    <option selected="" name="popularity.desc" value="popularity.desc">Yüksek Popülerlik</option>
+                    <option name="popularity.asc" value="popularity.asc">Düşük Popülerlik</option>
+                    <option name="title.asc" value="title.asc">Başlık (A-Z)</option>
+                    <option name="title.desc" value="title.desc">Başlık (Z-A)</option>
 
-            </optgroup>
-        </select>
-        <input class="btn btn-secondary mx-2" type="submit" value="Filtreleme" />
-    </form>
-
+                </optgroup>
+            </select>
+            <input class="btn btn-secondary mx-2" type="submit" value="Filtreleme" />
+        </form>
+    </div>
     <div class="row">
         <% movi["results"].forEach(function(mov){ %>
         <div class="mb-4 col-6 list-group" style="width: 100%;">
@@ -46,14 +47,14 @@
                     <img style="height: 100%; width: 100%;" src="<%= img + mov.poster_path %>" alt="Card image">
                 </div>
                 <div class="col-7 mb-4">
-                    <h3 class="card-header"><%= mov.title %></h3>
+                    <div class="card-header">
+                        <h4><strong><%= mov.original_title %></strong></h4>
+                        <hr>
+                        <small style="font-size:1rem;"><i><%= mov.release_date %></i></small>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Populerlik : <%= mov.popularity %></h5>
                         <p class="card-text">Açıklama : <%= mov.overview.substring(0, 140) %>...</p>
-
-                    </div>
-                    <div class="card-footer text-muted">
-                        2 days ago
                     </div>
                 </div>
             </div>

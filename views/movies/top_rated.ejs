@@ -11,14 +11,15 @@
                 </div>
 
                 <div class="col-7 mb-4">
-                    <h3 class="card-header"><%= mov.title %></h3>
+                    <div class="card-header">
+                        <h4><strong><%= mov.original_title %></strong></h4>
+                        <hr>
+                        <small style="font-size:1rem;"><i><%= mov.release_date %></i></small>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">Populerlik : <%= mov.popularity %></h5>
                         <p class="card-text">Açıklama : <%= mov.overview.substring(0, 140) %>...</p>
 
-                    </div>
-                    <div class="card-footer text-muted">
-                        2 days ago
                     </div>
                 </div>
             </div>
