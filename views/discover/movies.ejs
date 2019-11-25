@@ -5,7 +5,8 @@
         <form class="form-group form-inline" id="tableForm" action="/movies" method="GET">
             <select class="custom-select" data-style="btn-info" name="selectyears">
                 <optgroup>
-                    <option selected="" name="2019" value="2019">2019</option>
+                    <option selected="Years" value="Years">Years</option>
+                    <option name="2019" value="2019">2019</option>
                     <option name="2018" value="2018">2018</option>
                     <option name="2017" value="2017">2017</option>
                     <option name="2016" value="2016">2016</option>
@@ -29,14 +30,16 @@
             </select>
             <select class="custom-select w-25 mx-2" data-style="btn-info" name="selectedsira">
                 <optgroup>
-                    <option selected="" name="popularity.desc" value="popularity.desc">Yüksek Popülerlik</option>
+                    <option selected="Çeşite Göre" value="Çeşite Göre">Çeşite Göre</option>
+                    <option name="popularity.desc" value="popularity.desc">Yüksek Popülerlik
+                    </option>
                     <option name="popularity.asc" value="popularity.asc">Düşük Popülerlik</option>
                     <option name="title.asc" value="title.asc">Başlık (A-Z)</option>
                     <option name="title.desc" value="title.desc">Başlık (Z-A)</option>
 
                 </optgroup>
             </select>
-            <input class="btn btn-secondary mx-2" type="submit" value="Filtreleme" />
+            <input class="btn btn-secondary mx-2" type="submit" value="Sırala" />
         </form>
     </div>
     <div class="row">
