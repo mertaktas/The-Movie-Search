@@ -75,68 +75,7 @@ router.get("/people", function (req, res) {
     });
 });
 
-router.get("/movies/populermovie", function (req, res) {
 
-    var people = movie_url + movie_popular_key + '?' + api_key;
-
-    request(people, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var source = JSON.parse(body);
-            res.render("movies/populer_movie", {
-                source: source,
-                img: img
-            });
-        }
-    });
-});
-
-router.get("/movies/toprated", function (req, res) {
-
-
-
-    var people = movie_url + movie_toprated_key + '?' + api_key;
-
-
-    request(people, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var source = JSON.parse(body);
-            res.render("movies/top_rated", {
-                source: source,
-                img: img
-            });
-        }
-    });
-});
-
-router.get("/movies/upcoming", function (req, res) {
-
-    var people = movie_url + movie_upcoming_key + '?' + api_key;
-
-    request(people, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var source = JSON.parse(body);
-            res.render("movies/upcoming", {
-                source: source,
-                img: img
-            });
-        }
-    });
-});
-
-router.get("/movies/nowplaying", function (req, res) {
-
-    var people = movie_url + movie_nowplaying_key + '?' + api_key;
-
-    request(people, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var source = JSON.parse(body);
-            res.render("movies/now_playing", {
-                source: source,
-                img: img
-            });
-        }
-    });
-});
 
 router.get("/tvs/populartv", function (req, res) {
 

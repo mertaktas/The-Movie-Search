@@ -10,6 +10,9 @@ app.use("/", indexRoute);
 var discoverRoute = require("./router/discover");
 app.use("/discover", discoverRoute);
 
+var moviesRoute = require("./router/movies");
+app.use("/movies", moviesRoute);
+
 var port = process.env.PORT || 8080;
 app.listen(port, function () {
     console.log("Server Has Started!");
