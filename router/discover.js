@@ -15,10 +15,6 @@ var sort_by_key = "&sort_by=";
 // year_key
 var year_key = "&year=";
 
-
-// search movie key
-var search_movie_key = "/search/movie?query=";
-
 // discover keys
 var discover_movie_key = "/discover/movie";
 var discover_tv_key = "/discover/tv";
