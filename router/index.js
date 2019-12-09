@@ -60,20 +60,6 @@ router.get("/search", function (req, res) {
     });
 });
 
-router.get("/people", function (req, res) {
-
-    var people = movie_url + person_popular_key + '?' + api_key;
-
-    request(people, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var source = JSON.parse(body);
-            res.render("people", {
-                source: source,
-                img: img
-            });
-        }
-    });
-});
 
 
 module.exports = router;
