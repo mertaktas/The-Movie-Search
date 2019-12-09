@@ -11,9 +11,9 @@ var data = {
     movie_toprated_key: "/movie/top_rated",
     movie_upcoming_key: "/movie/upcoming",
     movie_nowplaying_key: "/movie/now_playing",
-    tv_popular_key = "/tv/popular",
-    tv_toprated_key = "/tv/top_rated",
-    tv_nowplaying_key = "/tv/on_the_air",
+    tv_popular_key: "/tv/popular",
+    tv_toprated_key: "/tv/top_rated",
+    tv_nowplaying_key: "/tv/on_the_air",
     person_popular_key: "/person/popular"
 };
 

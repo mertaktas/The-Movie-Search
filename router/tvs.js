@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var request = require("request");
+var data = require("../data/key");
 
 // the movie url
 var movie_url = "https://api.themoviedb.org/3";
