@@ -7,6 +7,9 @@ app.set("view engine", "ejs");
 var indexRoute = require("./router/index");
 app.use("/", indexRoute);
 
+var discoverRoute = require("./router/discover");
+app.use("/discover", discoverRoute);
+
 var port = process.env.PORT || 8080;
 app.listen(port, function () {
     console.log("Server Has Started!");

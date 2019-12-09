@@ -60,51 +60,6 @@ router.get("/search", function (req, res) {
     });
 });
 
-router.get("/discover/movies", function (req, res) {
-
-    // seçilen sort_By'dan gelen değer
-    var selectsira = req.query.selectedsira;
-    var siralama = sort_by_key + selectsira;
-
-    // Seçilen years'dan gelen değer
-    var selectyear = req.query.selectyears;
-    var years = year_key + selectyear;
-
-    var movie = movie_url + discover_movie_key + '?' + api_key + siralama + years;
-
-    request(movie, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var movi = JSON.parse(body);
-            res.render("discover/movies", {
-                movi: movi,
-                img: img
-            });
-        }
-    });
-});
-
-router.get("/discover/tv", function (req, res) {
-    // seçilen sort_By'dan gelen değer
-    var selectsira = req.query.selectedsira;
-    var siralama = sort_by_key + selectsira;
-
-    // Seçilen years'dan gelen değer
-    var selectyear = req.query.selectyears;
-    var years = year_key + selectyear;
-
-    var movie = movie_url + discover_tv_key + '?' + api_key + siralama + years;
-
-    request(movie, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var movi = JSON.parse(body);
-            res.render("discover/tv", {
-                movi: movi,
-                img: img
-            });
-        }
-    });
-});
-
 router.get("/people", function (req, res) {
 
     var people = movie_url + person_popular_key + '?' + api_key;
