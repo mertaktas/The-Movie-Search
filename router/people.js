@@ -3,13 +3,11 @@ const express = require("express"),
     request = require("request"),
     data = require("../data/key");
 
-router.get("/", function (req, res) {
-
-    var people = data.movie_url + data.person_popular_key + '?' + data.api_key;
-
-    request(people, function (error, response, body) {
+router.get("/", (req, res) => {
+    const people = data.movie_url + data.person_popular_key + '?' + data.api_key;
+    request(people, (error, response, body) => {
         if (!error && response.statusCode == 200) {
-            var source = JSON.parse(body);
+            const source = JSON.parse(body);
             res.render("people", {
                 source: source,
                 img: data.img

@@ -17,6 +17,6 @@ app.use("/tvs", tvsRoute);
 app.use("/people", peopleRoute);
 
 const port = process.env.PORT || 8080;
-app.listen(port, function () {
+app.listen(port, () => {
     console.log(`Server Has Started port: ${port}`);
 });
