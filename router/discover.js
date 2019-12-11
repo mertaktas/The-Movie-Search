@@ -1,7 +1,7 @@
-var express = require("express");
-var router = express.Router();
-var request = require("request");
-var data = require("../data/key");
+const express = require("express"),
+    router = express.Router(),
+    request = require("request"),
+    data = require("../data/key");
 
 router.get("/movies", function (req, res) {
 

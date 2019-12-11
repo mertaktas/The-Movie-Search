@@ -1,9 +1,9 @@
-var express = require("express");
-var router = express.Router();
-var request = require("request");
-var data = require("../data/key");
+const express = require("express"),
+    router = express.Router(),
+    request = require("request"),
+    data = require("../data/key");
 
-var people = data.movie_url + data.tv_popular_key + '?' + data.api_key;
+const people = data.movie_url + data.tv_popular_key + '?' + data.api_key;
 
 router.get("/populartv", function (req, res) {
     request(people, function (error, response, body) {
